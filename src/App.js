@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar'
+import Home from './components/Home'
+// eslint-disable-next-line
+import { BrowserRouter, Route } from 'react-router-dom'
+
 
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navbar />
-      </div>
+      <BrowserRouter>
+        <div className="App">         
+            <Navbar />
+               <Route path='/' component={Home} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
