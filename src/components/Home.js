@@ -1,21 +1,10 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import { connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import Pokeball from '../Pokeball.png'
 
 class  Home extends Component {
-    state = {
-        posts:[]
-    }
-    componentDidMount(){
-        axios.get('http://jsonplaceholder.typicode.com/posts')
-            .then(res => {
-                console.log(res)
-                this.setState({
-                    posts:res.data.slice(0,10)
-                })
-            })
-    }
+    
     render(){
         // brings state down
         const { posts } = this.state;
