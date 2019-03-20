@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import { connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Pokeball from '../Pokeball.png'
 
 class  Home extends Component {
     
     render(){
+        console.log(this.props)
         // brings state down
-        const { posts } = this.state;
+        const { posts } = this.props;
         // use ternary operator to check is the data has been received
         const postList = posts.length ? (
             // cycle through post length. and fire a function for each post. using the ID of individual posts from object
@@ -38,7 +39,13 @@ class  Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+ return {
+     posts: state.posts
+ }
+}
+
+export default connect(mapStateToProps)(Home);
 
 
 
